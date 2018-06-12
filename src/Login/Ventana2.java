@@ -1,6 +1,10 @@
 package Login;
 
-public class Ventana2 extends javax.swing.JFrame {
+import java.awt.Component;
+import java.awt.Graphics;
+import javax.swing.JOptionPane;
+
+public class Ventana2 extends javax.swing.JFrame { 
 
     /**
      * Creates new form Ventana2
@@ -14,54 +18,88 @@ public class Ventana2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        freVentana2 = new javax.swing.JLabel();
-        btnRegresar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblOpcion = new javax.swing.JLabel();
+        jcbOpciones = new javax.swing.JComboBox<>();
+        lblimagenes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("freVentana2"); // NOI18N
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        freVentana2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        freVentana2.setText("Acceso Correcto");
+        lblOpcion.setFont(new java.awt.Font("Britannic Bold", 0, 24)); // NOI18N
+        lblOpcion.setText("Selecciona Una Opción:");
+        lblOpcion.setName(""); // NOI18N
 
-        btnRegresar.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        btnRegresar.setText("REGRESAR");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+        jcbOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----------", "Imagen 1", "Imagen 2", "Imagen 3" }));
+        jcbOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
+                jcbOpcionesActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(freVentana2)
-                .addGap(90, 90, 90))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(btnRegresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        lblimagenes.setText("Imagenes");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(lblimagenes))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jcbOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(lblOpcion)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(freVentana2)
-                .addGap(51, 51, 51)
-                .addComponent(btnRegresar)
-                .addContainerGap(69, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(lblimagenes)
+                .addGap(54, 54, 54)
+                .addComponent(lblOpcion)
+                .addGap(18, 18, 18)
+                .addComponent(jcbOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        new Principal().setVisible(true);
-           this.dispose();
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    private void jcbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbOpcionesActionPerformed
+            int op = jcbOpciones.getSelectedIndex();
+        
+        switch (op){
+            case 0: JOptionPane.showMessageDialog(null, "No Hay Opción Seleccionada", "Opción Seleccionada" , JOptionPane.INFORMATION_MESSAGE);
+                lblOpcion.setText("No Hay Opción Seleccionada");
+                lblimagenes.setText("No Hay Opción Seleccionada");
+            break;
+            case 1: JOptionPane.showMessageDialog(null, "Imagen 1", "Opción Seleccionada" , JOptionPane.INFORMATION_MESSAGE);
+                lblOpcion.setText("Selecciona La Imagen 1");
+                 lblimagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen1.png")));
+            
+               
+            break;
+            case 2: JOptionPane.showMessageDialog(null, "Imagen 2", "Opción Seleccionada" , JOptionPane.INFORMATION_MESSAGE); 
+                lblOpcion.setText("Selecciona La Imagen 2");
+                lblimagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen2.png")));
+                
+            break;
+            case 3: JOptionPane.showMessageDialog(null, "Imagen 3", "Opción Seleccionada" , JOptionPane.INFORMATION_MESSAGE);
+                lblOpcion.setText("Selecciona La Imagen 3");
+                lblimagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen3.png")));
+            break;
+        }
+    }//GEN-LAST:event_jcbOpcionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,7 +137,9 @@ public class Ventana2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegresar;
-    private javax.swing.JLabel freVentana2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcbOpciones;
+    private javax.swing.JLabel lblOpcion;
+    private javax.swing.JLabel lblimagenes;
     // End of variables declaration//GEN-END:variables
 }
